@@ -1,0 +1,23 @@
+{
+  "name": "rnexpr-backend",
+  "version": "1.0.0",
+  "description": "React Native Backend",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --project ./",
+    "start": "nodemon index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Richard Brammer",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.7",
+    "@types/node": "14.6.0",
+    "nodemon": "2.0.4",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.7"
+  }
+}
