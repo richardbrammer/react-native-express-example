@@ -1,0 +1,12 @@
+# React Native app with Express back end
+An example using TypeScript, Redux, Expo for Express and React Native
+
+## Backend
+
+## App
+
+1. Install Expo globally using npm
+`$ npm i -g expo`
+
+2. Install dependencies
+`$ npm i`
