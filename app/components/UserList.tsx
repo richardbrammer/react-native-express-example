@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
   Image,
   FlatList
 } from 'react-native';
-import { connect, ConnectedProps } from 'react-redux';
-import { bindActionCreators, Dispatch, AnyAction } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { User } from '../interfaces/user.interface';
 import { State } from '../reducers/usersReducer';
 import fetchUsers from '../actions/fetchUsers';
-import { User } from '../interfaces/user.interface';
 
 const List = (props: { users: User[] }) => {
     const dimension = 60;
@@ -27,41 +26,33 @@ const List = (props: { users: User[] }) => {
     )
 }
 
+const UserList = () => {
 
-class UserList extends Component<PropsFromRedux> {
+    const users = useSelector((state: { users: State}) => state.users);
+    const dispatch = useDispatch(); 
+    
+    useEffect(() => {
+        dispatch (fetchUsers());
+    }, []);
 
-    componentDidMount() {
-        this.props.fetchUsers();
+    if (users.error) {
+        return (<View><Text>Error loading users.</Text></View>)
     }
 
-    render() {
-        if (this.props.users.loading) {
-            return (<View><Text>Loading...</Text></View>);
-        }
-
-        if (!this.props.users.list) {
-            return (<View><Text>No Users</Text></View>)
-        }
-
-        return (
-            <View style={{ width: '95%'}}>
-                <List users={ this.props.users.list }></List>
-            </View>
-        )
+    if (users.loading) {
+        return (<View><Text>Loading...</Text></View>);
     }
+
+    if (!users.list) {
+        return (<View><Text>No users</Text></View>)
+    }
+
+    return (
+        <View style={{ width: '95%'}}>
+            <List users={ users.list }></List>
+        </View>
+    )
+    
 }
 
-const mapStateToProps = (state: { users: State }) => {
-    console.log(state);
-    return { users: state.users };
-}
-
-
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({
-    fetchUsers
-}, dispatch)
-  
-const connector = connect(mapStateToProps, mapDispatchToProps);
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-export default connector(UserList)
+export default UserList;
