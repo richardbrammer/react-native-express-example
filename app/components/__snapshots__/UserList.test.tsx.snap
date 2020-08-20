@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserList /> renders Loading... 1`] = `
+<View>
+  <Text>
+    Loading...
+  </Text>
+</View>
+`;
