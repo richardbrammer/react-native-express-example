@@ -1,5 +1,5 @@
 # React Native app with Express back end
-An example using TypeScript, Redux, Expo for Express and React Native
+An example using TypeScript, Redux, Expo for Express and React Native.
 
 **Requirements**
 Node.js > 14.3
