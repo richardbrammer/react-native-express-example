@@ -1,10 +1,13 @@
 import express from 'express';
+import cors from 'cors';
 
 import { db } from './api/db';
 import { User } from './interfaces/user.interface';
 
 const app = express();
 const PORT = 8000;
+
+app.use(cors());
 
 /**
  * Nothing on root, so return a 404
