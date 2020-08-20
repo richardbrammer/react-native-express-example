@@ -3,7 +3,7 @@ import { Action } from '../interfaces/action.interface';
 import { User } from '../interfaces/user.interface';
 
 export interface State {
-    list: null | User[];
+    list: undefined | null | User[];
     loading: boolean;
     error: null | string;
 }

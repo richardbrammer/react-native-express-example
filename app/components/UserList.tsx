@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+  Image,
   FlatList
 } from 'react-native';
 import { connect, ConnectedProps } from 'react-redux';
@@ -12,12 +13,15 @@ import fetchUsers from '../actions/fetchUsers';
 import { User } from '../interfaces/user.interface';
 
 const List = (props: { users: User[] }) => {
+    const dimension = 60;
+
     return (
-        <FlatList 
+        <FlatList
             data={props.users}
             renderItem={({ item, index, separators }) => (
-                <View style={{ backgroundColor: 'white' }}>
-                    <Text>{item.name}</Text>
+                <View style={{ padding: 10, margin: 3, borderRadius: 5, backgroundColor: 'white', flexDirection: 'row' }}>
+                    <Image source={{ uri: item.avatar }} style={{ width: dimension, height: dimension, borderRadius: dimension / 2 }}/>
+                    <Text style={{ padding: 22 }}>{item.name}</Text>
                 </View>)}
         />
     )
@@ -40,7 +44,7 @@ class UserList extends Component<PropsFromRedux> {
         }
 
         return (
-            <View>
+            <View style={{ width: '95%'}}>
                 <List users={ this.props.users.list }></List>
             </View>
         )
