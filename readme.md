@@ -12,13 +12,15 @@ The backend API is based on NodeJS and [Express](http://expressjs.com/). The sou
 - Install dependencies
 
 ```
-$ cd backend`
+$ cd backend
 $ npm i
 ```
 
 - Start Server
 
-`$ npm start`
+```
+$ npm start
+```
 
 The API is exposed on http://localhost:8000/api/v1
 
@@ -47,7 +49,9 @@ $ npm i -g expo
 
 2. Install dependencies
 
-`$ npm i`
+```
+$ npm i
+```
 
 ### Development
 
@@ -55,12 +59,17 @@ The app is dependent on the backend API, so you should make sure to start the ba
 
 To run the app in development mode execute
 
-`$ npm start`
+```
+$ npm start
+```
 
 Open your browser on http://localhost:19002/ to see the Metro Bundler. From there you can check the app in the browser, or in the iOS or Android simulators.
 
 ### Test
 
 The app uses Jest for unit tests. To run the tests execute
-`$ npm test`
+
+```
+$ npm test
+```
 
